@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Statistics - PhishNet</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .card {
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border: none;
+        }
+        .navbar-brand {
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <i class="fas fa-shield-alt"></i> PhishNet
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/statistics">Statistics</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container py-5">
+        <div class="row">
+            <div class="col-lg-10 mx-auto">
+                <h1 class="display-4 text-center mb-5">Statistics & Performance</h1>
+                
+                <div class="card shadow-sm mb-4">
+                    <div class="card-body">
+                        <h3><i class="fas fa-chart-bar text-primary"></i> Model Performance</h3>
+                        <p class="lead">Our machine learning models are trained on extensive datasets to ensure high accuracy in detecting phishing websites.</p>
+                        
+                        <div class="row text-center mt-4">
+                            <div class="col-md-3 mb-3">
+                                <div class="card bg-primary text-white">
+                                    <div class="card-body">
+                                        <h2>95%+</h2>
+                                        <p>Accuracy</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <div class="card bg-success text-white">
+                                    <div class="card-body">
+                                        <h2>10K+</h2>
+                                        <p>Training Samples</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <div class="card bg-info text-white">
+                                    <div class="card-body">
+                                        <h2>30+</h2>
+                                        <p>Features Analyzed</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <div class="card bg-warning text-white">
+                                    <div class="card-body">
+                                        <h2>< 1s</h2>
+                                        <p>Detection Time</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card shadow-sm mb-4">
+                    <div class="card-body">
+                        <h3><i class="fas fa-exclamation-triangle text-warning"></i> Phishing Statistics</h3>
+                        <p>Understanding the threat landscape helps us build better protection systems.</p>
+                        
+                        <div class="row mt-4">
+                            <div class="col-md-6">
+                                <h5>Common Phishing Targets</h5>
+                                <ul class="list-group">
+                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                        Financial Institutions
+                                        <span class="badge bg-primary rounded-pill">35%</span>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                        Social Media Platforms
+                                        <span class="badge bg-primary rounded-pill">25%</span>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                        Email Services
+                                        <span class="badge bg-primary rounded-pill">20%</span>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                        E-commerce Sites
+                                        <span class="badge bg-primary rounded-pill">15%</span>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                        Other Services
+                                        <span class="badge bg-primary rounded-pill">5%</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <h5>Detection Metrics</h5>
+                                <ul class="list-group">
+                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                        True Positive Rate
+                                        <span class="badge bg-success rounded-pill">96%</span>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                        False Positive Rate
+                                        <span class="badge bg-danger rounded-pill">2%</span>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                        Precision
+                                        <span class="badge bg-info rounded-pill">95%</span>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                        Recall
+                                        <span class="badge bg-warning rounded-pill">94%</span>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                        F1-Score
+                                        <span class="badge bg-primary rounded-pill">95%</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <h3><i class="fas fa-lightbulb text-warning"></i> Safety Tips</h3>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="alert alert-success">
+                                    <h6><i class="fas fa-check-circle"></i> Do:</h6>
+                                    <ul>
+                                        <li>Check URLs carefully before clicking</li>
+                                        <li>Look for HTTPS in the address bar</li>
+                                        <li>Verify sender email addresses</li>
+                                        <li>Use two-factor authentication</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="alert alert-danger">
+                                    <h6><i class="fas fa-times-circle"></i> Don't:</h6>
+                                    <ul>
+                                        <li>Click on suspicious links</li>
+                                        <li>Enter passwords on unverified sites</li>
+                                        <li>Share personal information freely</li>
+                                        <li>Ignore browser security warnings</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5><i class="fas fa-shield-alt"></i> PhishNet</h5>
+                    <p>Protecting users from phishing attacks using AI and Machine Learning.</p>
+                </div>
+                <div class="col-md-6 text-end">
+                    <p>&copy; 2025 PhishNet. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PhishNet - Phishing Detection</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .hero-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 100px 0;
+        }
+        .card {
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border: none;
+        }
+        .feature-card {
+            transition: transform 0.3s ease;
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+        .navbar-brand {
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            border: none;
+            border-radius: 10px;
+        }
+        .progress {
+            border-radius: 10px;
+            height: 25px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <i class="fas fa-shield-alt"></i> PhishNet
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/statistics">Statistics</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h1 class="display-4 fw-bold mb-4">Protect Yourself from Phishing Attacks</h1>
+                    <p class="lead mb-4">PhishNet uses advanced machine learning to detect malicious websites and keep your personal information safe.</p>
+                    <div class="d-flex gap-3">
+                        <a href="#detector" class="btn btn-light btn-lg">
+                            <i class="fas fa-search"></i> Check URL Now
+                        </a>
+                        <a href="/about" class="btn btn-outline-light btn-lg">
+                            Learn More
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-6 text-center">
+                    <i class="fas fa-shield-alt display-1"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- URL Detector Section -->
+    <section id="detector" class="py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="card shadow-lg">
+                        <div class="card-header bg-primary text-white">
+                            <h3 class="mb-0"><i class="fas fa-link"></i> Phishing URL Detector</h3>
+                        </div>
+                        <div class="card-body p-4">
+                            <form id="detectionForm">
+                                <div class="mb-3">
+                                    <label for="urlInput" class="form-label">Enter URL to Analyze</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="fas fa-globe"></i></span>
+                                        <input type="url" class="form-control form-control-lg" 
+                                               id="urlInput" placeholder="https://example.com" required>
+                                    </div>
+                                    <div class="form-text">Enter the complete URL including http:// or https://</div>
+                                </div>
+                                <button type="submit" class="btn btn-primary btn-lg w-100" id="analyzeBtn">
+                                    <i class="fas fa-search"></i> Analyze URL
+                                </button>
+                            </form>
+                            
+                            <!-- Loading Spinner -->
+                            <div id="loading" class="text-center mt-4" style="display: none;">
+                                <div class="spinner-border text-primary" role="status">
+                                    <span class="visually-hidden">Loading...</span>
+                                </div>
+                                <p class="mt-2">Analyzing URL...</p>
+                            </div>
+                            
+                            <!-- Results Section -->
+                            <div id="results" class="mt-4" style="display: none;">
+                                <div class="card">
+                                    <div class="card-body text-center">
+                                        <h4 id="resultTitle" class="card-title"></h4>
+                                        <div id="resultIcon" class="display-1 mb-3"></div>
+                                        <p id="resultMessage" class="card-text"></p>
+                                        
+                                        <div class="progress mb-3">
+                                            <div id="confidenceBar" class="progress-bar" 
+                                                 role="progressbar" style="width: 0%"></div>
+                                        </div>
+                                        <p id="confidenceText" class="text-muted"></p>
+                                        
+                                        <div class="row mt-4">
+                                            <div class="col-md-6">
+                                                <div class="card bg-light">
+                                                    <div class="card-body">
+                                                        <h6>Safe Probability</h6>
+                                                        <h4 id="safeProb" class="text-success">0%</h4>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="card bg-light">
+                                                    <div class="card-body">
+                                                        <h6>Phishing Probability</h6>
+                                                        <h4 id="phishingProb" class="text-danger">0%</h4>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row text-center mb-5">
+                <div class="col">
+                    <h2 class="display-5">How PhishNet Protects You</h2>
+                    <p class="lead">Advanced features that make our detection system reliable</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 feature-card">
+                        <div class="card-body text-center">
+                            <i class="fas fa-brain display-4 text-primary mb-3"></i>
+                            <h5>Machine Learning</h5>
+                            <p>Uses advanced algorithms like Random Forest and Logistic Regression for accurate detection.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 feature-card">
+                        <div class="card-body text-center">
+                            <i class="fas fa-bolt display-4 text-primary mb-3"></i>
+                            <h5>Real-time Analysis</h5>
+                            <p>Instant URL analysis with results delivered in seconds.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 feature-card">
+                        <div class="card-body text-center">
+                            <i class="fas fa-database display-4 text-primary mb-3"></i>
+                            <h5>Comprehensive Database</h5>
+                            <p>Trained on thousands of legitimate and phishing websites.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5><i class="fas fa-shield-alt"></i> PhishNet</h5>
+                    <p>Protecting users from phishing attacks using AI and Machine Learning.</p>
+                </div>
+                <div class="col-md-6 text-end">
+                    <p>&copy; 2025 PhishNet. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('detectionForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const urlInput = document.getElementById('urlInput');
+            const url = urlInput.value.trim();
+            const analyzeBtn = document.getElementById('analyzeBtn');
+            const loading = document.getElementById('loading');
+            const results = document.getElementById('results');
+            
+            if (!url) {
+                alert('Please enter a URL');
+                return;
+            }
+
+            // Show loading state
+            loading.style.display = 'block';
+            results.style.display = 'none';
+            analyzeBtn.disabled = true;
+            analyzeBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Analyzing...';
+            
+            try {
+                const response = await fetch('/detect', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    body: `url=${encodeURIComponent(url)}`
+                });
+                
+                const data = await response.json();
+                
+                if (data.error) {
+                    throw new Error(data.error);
+                }
+                
+                // Display results
+                const isPhishing = data.is_phishing;
+                const confidence = data.confidence * 100;
+                
+                if (isPhishing) {
+                    document.getElementById('resultTitle').textContent = '🚨 Phishing Website Detected!';
+                    document.getElementById('resultTitle').className = 'text-danger';
+                    document.getElementById('resultIcon').innerHTML = '<i class="fas fa-exclamation-triangle text-danger"></i>';
+                    document.getElementById('resultMessage').textContent = 'This website appears to be a phishing attempt. Do not enter any personal information.';
+                    results.querySelector('.card').style.borderColor = '#e74c3c';
+                } else {
+                    document.getElementById('resultTitle').textContent = '✅ Safe Website';
+                    document.getElementById('resultTitle').className = 'text-success';
+                    document.getElementById('resultIcon').innerHTML = '<i class="fas fa-check-circle text-success"></i>';
+                    document.getElementById('resultMessage').textContent = 'This website appears to be safe. However, always exercise caution online.';
+                    results.querySelector('.card').style.borderColor = '#27ae60';
+                }
+                
+                // Update confidence bar
+                const confidenceBar = document.getElementById('confidenceBar');
+                confidenceBar.style.width = confidence + '%';
+                confidenceBar.textContent = Math.round(confidence) + '%';
+                confidenceBar.className = 'progress-bar ' + (isPhishing ? 'bg-danger' : 'bg-success');
+                
+                document.getElementById('confidenceText').textContent = `Confidence: ${Math.round(confidence)}%`;
+                
+                // Update probabilities
+                document.getElementById('safeProb').textContent = Math.round(data.safe_probability * 100) + '%';
+                document.getElementById('phishingProb').textContent = Math.round(data.phishing_probability * 100) + '%';
+                
+                // Show results
+                loading.style.display = 'none';
+                results.style.display = 'block';
+                analyzeBtn.disabled = false;
+                analyzeBtn.innerHTML = '<i class="fas fa-search"></i> Analyze URL';
+                
+                // Scroll to results
+                results.scrollIntoView({ behavior: 'smooth' });
+                
+            } catch (error) {
+                alert('Error: ' + error.message);
+                loading.style.display = 'none';
+                analyzeBtn.disabled = false;
+                analyzeBtn.innerHTML = '<i class="fas fa-search"></i> Analyze URL';
+            }
+        });
+
+        // Add quick test URLs
+        const sampleUrls = [
+            "https://www.google.com",
+            "https://www.github.com", 
+            "http://paypal-security-verify.com",
+            "http://facebook-login-secure.com"
+        ];
+
+        const urlInput = document.getElementById('urlInput');
+        const quickTestDiv = document.createElement('div');
+        quickTestDiv.className = 'mt-3';
+        quickTestDiv.innerHTML = `
+            <small class="text-muted">Quick test:</small>
+            <div class="btn-group btn-group-sm mt-1" role="group">
+                ${sampleUrls.map(url => 
+                    `<button type="button" class="btn btn-outline-secondary" onclick="document.getElementById('urlInput').value='${url}'">${new URL(url).hostname}</button>`
+                ).join('')}
+            </div>
+        `;
+        document.getElementById('detectionForm').appendChild(quickTestDiv);
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

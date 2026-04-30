@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - PhishNet</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .card {
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border: none;
+        }
+        .navbar-brand {
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <i class="fas fa-shield-alt"></i> PhishNet
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/statistics">Statistics</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container py-5">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <h1 class="display-4 text-center mb-5">About PhishNet</h1>
+                
+                <div class="card shadow-sm mb-4">
+                    <div class="card-body">
+                        <h3><i class="fas fa-bullseye text-primary"></i> Our Mission</h3>
+                        <p class="lead">PhishNet is dedicated to protecting internet users from phishing attacks through advanced machine learning technology. We believe everyone deserves a safe browsing experience.</p>
+                    </div>
+                </div>
+
+                <div class="card shadow-sm mb-4">
+                    <div class="card-body">
+                        <h3><i class="fas fa-cogs text-primary"></i> How It Works</h3>
+                        <p>Our system analyzes various URL features and website characteristics to identify potential phishing attempts:</p>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">
+                                        <i class="fas fa-check text-success"></i> URL structure analysis
+                                    </li>
+                                    <li class="list-group-item">
+                                        <i class="fas fa-check text-success"></i> Domain reputation checking
+                                    </li>
+                                    <li class="list-group-item">
+                                        <i class="fas fa-check text-success"></i> Content feature extraction
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">
+                                        <i class="fas fa-check text-success"></i> Machine learning classification
+                                    </li>
+                                    <li class="list-group-item">
+                                        <i class="fas fa-check text-success"></i> Real-time threat detection
+                                    </li>
+                                    <li class="list-group-item">
+                                        <i class="fas fa-check text-success"></i> Suspicious pattern recognition
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card shadow-sm mb-4">
+                    <div class="card-body">
+                        <h3><i class="fas fa-code text-primary"></i> Technology Stack</h3>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h5>Backend & Framework</h5>
+                                <div class="d-flex flex-wrap gap-2 mb-3">
+                                    <span class="badge bg-primary">Python Flask</span>
+                                    <span class="badge bg-secondary">Scikit-learn</span>
+                                    <span class="badge bg-info">Pandas</span>
+                                    <span class="badge bg-warning">NumPy</span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <h5>Machine Learning</h5>
+                                <div class="d-flex flex-wrap gap-2">
+                                    <span class="badge bg-success">Random Forest</span>
+                                    <span class="badge bg-danger">Logistic Regression</span>
+                                    <span class="badge bg-dark">SVM</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <h3><i class="fas fa-shield-alt text-primary"></i> Why Choose PhishNet?</h3>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <h6><i class="fas fa-rocket text-primary"></i> Fast & Accurate</h6>
+                                <p>Get instant results with high accuracy using our trained ML models.</p>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <h6><i class="fas fa-user-friends text-primary"></i> User-Friendly</h6>
+                                <p>Simple interface that anyone can use without technical knowledge.</p>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <h6><i class="fas fa-database text-primary"></i> Continuously Updated</h6>
+                                <p>Our models are regularly updated with new phishing patterns.</p>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <h6><i class="fas fa-lock text-primary"></i> Privacy Focused</h6>
+                                <p>We don't store your URLs or personal information.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5><i class="fas fa-shield-alt"></i> PhishNet</h5>
+                    <p>Protecting users from phishing attacks using AI and Machine Learning.</p>
+                </div>
+                <div class="col-md-6 text-end">
+                    <p>&copy; 2025 PhishNet. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
